@@ -67,6 +67,8 @@ class QuoteTableViewController: UITableViewController {
         if indexPath.row == quotesToShow.count {
             buyPremiumQuotes()
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - In-app purchase methods
