@@ -10,8 +10,11 @@
 // This is the product id used when setting up the in-app purchases for the premium quotes
 
 import UIKit
+import StoreKit
 
-class QuoteTableViewController: UITableViewController {
+class QuoteTableViewController: UITableViewController, SKPaymentTransactionObserver {
+    
+    let productId = "com.jacobmorrison.InspoQuotes.PremiumQuotes"
     
     var quotesToShow = [
         "Our greatest glory is not in never falling, but in rising every time we fall. — Confucius",
@@ -33,6 +36,11 @@ class QuoteTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // When you add a new protocol - SKPaymentTransactionObserver - and you want to use it's delegate method you have to declare
+        // a class as the delegate. We want to declare the current class - QuoteTableviewController - as the delegate who is going
+        // to receive the messages from the SKPaymentTransactionObserver when the transaction status changes.
+        SKPaymentQueue.default().add(self)
 
     }
 
@@ -73,12 +81,34 @@ class QuoteTableViewController: UITableViewController {
     
     // MARK: - In-app purchase methods
     func buyPremiumQuotes() {
+        // need to make sure phone is enabled, no parental controls set
+        if SKPaymentQueue.canMakePayments() {
+            // can make payments
+            let paymentRequest = SKMutablePayment()
+            paymentRequest.productIdentifier = productId
+            SKPaymentQueue.default().add(paymentRequest)
+            
+        } else {
+            // can't make payments
+            print("User can't make payments.")
+        }
         
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        // It is possible to have multiple transations becuase multiple transactions can happen in the same queue
+        for transaction in transactions {
+            if transaction.transactionState == .purchased {
+                // payment successfull
+                print("payment successful")
+            } else if transaction.transactionState == .failed {
+                // payment failed or user cancelled payment
+                print("payment failed")
+            }
+        }
     }
     
     @IBAction func restorePressed(_ sender: UIBarButtonItem) {
         
     }
-
-
 }
