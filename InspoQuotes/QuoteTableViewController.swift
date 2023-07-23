@@ -42,16 +42,6 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
         }
     }
     
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // When you add a new protocol - SKPaymentTransactionObserver - and you want to use it's delegate method you have to declare
-//        // a class as the delegate. We want to declare the current class - QuoteTableviewController - as the delegate who is going
-//        // to receive the messages from the SKPaymentTransactionObserver when the transaction status changes because it is implementing
-//        // the required functions for the protocol.
-//        SKPaymentQueue.default().add(self)
-//
-//        return true
-//    }
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,7 +68,6 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
             cell.accessoryType = .disclosureIndicator
         }
         
-        
         return cell
     }
     
@@ -101,7 +90,6 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
             let paymentRequest = SKMutablePayment()
             paymentRequest.productIdentifier = productId
             SKPaymentQueue.default().add(paymentRequest)
-            //print("User can make payments")
         } else {
             // Can't make payments
             print("User can't make payments.")
@@ -130,7 +118,7 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
                 SKPaymentQueue.default().finishTransaction(transaction)
             } else if transaction.transactionState == .restored {
                 showPremiumQuotes()
-                print("transaction restored")
+                print("Transaction restored")
                 navigationItem.setRightBarButton(nil, animated: true)
                 SKPaymentQueue.default().finishTransaction(transaction)
             }
