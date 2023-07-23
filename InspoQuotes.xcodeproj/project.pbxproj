@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A3EEE7A2A6844C100F77C38 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3EEE792A6844C100F77C38 /* StoreKit.framework */; };
+		8AED3B3E2A6AE4F900C2EBAB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AED3B3D2A6AE4F900C2EBAB /* StoreKit.framework */; };
 		AD18A83E21285CAF00F6BF05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD18A83D21285CAF00F6BF05 /* AppDelegate.swift */; };
 		AD18A84321285CAF00F6BF05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD18A84121285CAF00F6BF05 /* Main.storyboard */; };
 		AD18A84521285CB000F6BF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD18A84421285CB000F6BF05 /* Assets.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A3EEE792A6844C100F77C38 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8AED3B3D2A6AE4F900C2EBAB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AD18A83A21285CAF00F6BF05 /* InspoQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InspoQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD18A83D21285CAF00F6BF05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD18A84221285CAF00F6BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A3EEE7A2A6844C100F77C38 /* StoreKit.framework in Frameworks */,
+				8AED3B3E2A6AE4F900C2EBAB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 		8A3EEE782A6844C100F77C38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A3EEE792A6844C100F77C38 /* StoreKit.framework */,
+				8AED3B3D2A6AE4F900C2EBAB /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
