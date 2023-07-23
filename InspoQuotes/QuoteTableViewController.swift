@@ -35,20 +35,22 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SKPaymentQueue.default().add(self)
+        
         if isPurchased(){
             showPremiumQuotes()
         }
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // When you add a new protocol - SKPaymentTransactionObserver - and you want to use it's delegate method you have to declare
-        // a class as the delegate. We want to declare the current class - QuoteTableviewController - as the delegate who is going
-        // to receive the messages from the SKPaymentTransactionObserver when the transaction status changes because it is implementing
-        // the required functions for the protocol.
-        SKPaymentQueue.default().add(self)
-        
-        return true
-    }
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        // When you add a new protocol - SKPaymentTransactionObserver - and you want to use it's delegate method you have to declare
+//        // a class as the delegate. We want to declare the current class - QuoteTableviewController - as the delegate who is going
+//        // to receive the messages from the SKPaymentTransactionObserver when the transaction status changes because it is implementing
+//        // the required functions for the protocol.
+//        SKPaymentQueue.default().add(self)
+//
+//        return true
+//    }
     
     // MARK: - Table view data source
     
@@ -157,7 +159,6 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
     }
     
     @IBAction func restorePressed(_ sender: UIBarButtonItem) {
-        print("in restored func")
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
 }
